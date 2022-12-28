@@ -1,0 +1,63 @@
+$primary-color: #b1b1b1;
+$secondary-color: #505050;
+$button-color: #6b6b6b;
+
+@mixin basic-flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@font-face {
+  font-family: "MinecraftFont";
+  src: url(../font/minecraft.ttf);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "MinecraftFont";
+  background-image: url("../img/steve-vs-zombies.webp");
+  background-size: cover;
+  color: white;
+
+  .content {
+    @include basic-flexbox;
+    flex-direction: column;
+    height: 100vh;
+    color: $primary-color;
+
+    div {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      h1 {
+        font-size: 80px;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 50px;
+        margin-top: 0;
+        background: -webkit-linear-gradient(#d3d3d3, #4c4c4c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      a {
+        button {
+          background-color: $button-color;
+          border: $primary-color solid;
+          padding: 20px 100px 20px 100px;
+          color: $primary-color;
+          font-family: "MinecraftFont";
+          font-size: 30px;
+
+          &:hover {
+            background-color: $secondary-color;
+          }
+        }
+      }
+    }
+  }
+}

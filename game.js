@@ -4,8 +4,9 @@ const paperEl = document.getElementById("paper-el");
 const scissorsEl = document.getElementById("scissors-el");
 const playerScoreEl = document.getElementById("player-score-el");
 const computerScoreEl = document.getElementById("computer-score-el");
-let playerScore = 0;
-let computerScore = 0;
+const points = "<img src='img/heart.png' class='main__score-icon'/>";
+let playerScore = [points, points, points, points, points];
+let computerScore = [points, points, points, points, points];
 const resultEl = document.getElementById("result-el");
 const newGameBtn = document.getElementById("new-game-btn");
 
@@ -17,39 +18,40 @@ const zombieDamage = new Audio("sound/zombie-damage.mp3");
 const playerDamage = new Audio("sound/player-damage.mp3");
 const draw = new Audio("sound/draw.mp3");
 
-/* window.addEventListener("DOMContentLoaded", () => {
-  const soundtrack = document.querySelector("audio");
-  soundtrack.volume = 0.2;
-  soundtrack.play();
-}); */
-
-/* let playBtn = document.getElementById("play-btn");
-playBtn.addEventListener("click", function playMusic() {
-  const soundtrack = new Audio("sound/minecraft-music.mp3");
-  soundtrack.play();
-}); */
+window.addEventListener("load", () => {
+  playerScoreEl.innerHTML = playerScore.join("");
+  computerScoreEl.innerHTML = computerScore.join("");
+});
 
 function getComputerChoice() {
   let computerChoice = choice[Math.floor(Math.random() * choice.length)];
   return computerChoice;
 }
 
+function reducePlayerPoints() {
+  playerScore.pop();
+  playerScore.join("");
+}
+
+function reduceComputerPoints() {
+  computerScore.pop();
+  computerScore.join("");
+}
+
 function checkScore() {
-  if (playerScore == 5) {
-    resultEl.textContent = "Game is over. Steve wins!";
-    zombieDeath.play();
-    return;
-  } else if (computerScore == 5) {
+  if (playerScore.length == 0) {
     resultEl.textContent = "Game is over. Zombie wins!";
     playerDeath.play();
-    return;
+  } else if (computerScore.length == 0) {
+    resultEl.textContent = "Game is over. Steve wins!";
+    zombieDeath.play();
   }
 }
 
 function playRound(player, computer) {
-  if (playerScore == 5) {
+  if (playerScore.length == 0) {
     return;
-  } else if (computerScore == 5) {
+  } else if (computerScore.length == 0) {
     return;
   } else {
     if (player == computer) {
@@ -57,38 +59,56 @@ function playRound(player, computer) {
       draw.play();
       checkScore();
     } else if (player == "paper" && computer == "rock") {
-      resultEl.textContent = `${player} beats ${computer}. Steve won!`;
-      playerScore += 1;
+      resultEl.textContent =
+        player.charAt(0).toUpperCase() +
+        player.slice(1) +
+        ` beats ${computer}. Steve won!`;
+      reduceComputerPoints();
       zombieDamage.play();
       checkScore();
     } else if (player == "paper" && computer == "scissors") {
-      resultEl.textContent = `${computer} beats ${player}. Zombie won!`;
-      computerScore += 1;
+      resultEl.textContent =
+        computer.charAt(0).toUpperCase() +
+        computer.slice(1) +
+        ` beats ${player}. Zombie won!`;
+      reducePlayerPoints();
       playerDamage.play();
       checkScore();
     } else if (player == "rock" && computer == "paper") {
-      resultEl.textContent = `${computer} beats ${player}. Zombie won!`;
-      computerScore += 1;
+      resultEl.textContent =
+        computer.charAt(0).toUpperCase() +
+        computer.slice(1) +
+        ` beats ${player}. Zombie won!`;
+      reducePlayerPoints();
       playerDamage.play();
       checkScore();
     } else if (player == "rock" && computer == "scissors") {
-      resultEl.textContent = `${player} beats ${computer}. Steve won!`;
-      playerScore += 1;
+      resultEl.textContent =
+        player.charAt(0).toUpperCase() +
+        player.slice(1) +
+        ` beats ${computer}. Steve won!`;
+      reduceComputerPoints();
       zombieDamage.play();
       checkScore();
     } else if (player == "scissors" && computer == "rock") {
-      resultEl.textContent = `${computer} beats ${player}. Zombie won!`;
-      computerScore += 1;
+      resultEl.textContent =
+        computer.charAt(0).toUpperCase() +
+        computer.slice(1) +
+        ` beats ${player}. Zombie won!`;
+      reducePlayerPoints();
       playerDamage.play();
       checkScore();
     } else {
-      resultEl.textContent = `${player} beats ${computer}. Steve won!`;
-      playerScore += 1;
+      resultEl.textContent =
+        player.charAt(0).toUpperCase() +
+        player.slice(1) +
+        ` beats ${computer}. Steve won!`;
+      reduceComputerPoints();
       zombieDamage.play();
       checkScore();
     }
-    playerScoreEl.textContent = playerScore;
-    computerScoreEl.textContent = computerScore;
+    playerScoreEl.innerHTML = playerScore.join("");
+    computerScoreEl.innerHTML = computerScore.join("");
   }
 }
 
@@ -112,9 +132,9 @@ scissorsEl.addEventListener("click", () => {
 
 newGameBtn.addEventListener("click", function newGame() {
   zombieAppearing.play();
-  playerScore = 0;
-  computerScore = 0;
-  playerScoreEl.textContent = "";
-  computerScoreEl.textContent = "";
+  playerScore = [points, points, points, points, points];
+  computerScore = [points, points, points, points, points];
+  playerScoreEl.innerHTML = playerScore.join("");
+  computerScoreEl.innerHTML = computerScore.join("");
   resultEl.textContent = "";
 });

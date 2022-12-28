@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css/game-style.css" />
+    <title>Rock-Paper-Scissors</title>
+  </head>
+  <body>
+    <!-- <audio loop autoplay>
+      <source src="sound/minecraft-music.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio> -->
+    <div class="content">
+      <div class="content--background content--wrapper">
+        <div class="header content--wrapper">
+          <div class="header__text">
+            <h1>Rock, paper or scissors?</h1>
+            <p>Help Steve making the right decision to beat the zombie!</p>
+          </div>
+        </div>
+        <div class="main content--wrapper">
+          <div class="main__scoreboard">
+            <div class="main__scoreboard--player">
+              <img src="../img/steve.png" class="player--style" />
+              <p id="result-el"></p>
+              <img src="../img/minecraft-zombie.webp" class="player--style" />
+            </div>
+            <div class="main__scoreboard--score">
+              <span id="player-score-el"></span>
+              <span id="computer-score-el"></span>
+            </div>
+          </div>
+          <div class="main__select-choice">
+            <img
+              id="rock-el"
+              src="../img/minecraft-rock.webp"
+              class="main__select-choice--style"
+            />
+            <img
+              id="paper-el"
+              src="../img/minecraft-paper.webp"
+              class="main__select-choice--style"
+            />
+            <img
+              id="scissors-el"
+              src="../img/minecraft-scissors.webp"
+              class="main__select-choice--style"
+            />
+          </div>
+        </div>
+        <div class="footer content--wrapper">
+          <button id="new-game-btn">New Game</button>
+          <a href="index.html"><button>Back to Homepage</button></a>
+        </div>
+      </div>
+    </div>
+    <script src="../game.js"></script>
+  </body>
+</html>

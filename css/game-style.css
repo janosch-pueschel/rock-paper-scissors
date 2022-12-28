@@ -1,0 +1,157 @@
+@font-face {
+  font-family: "MinecraftFont";
+  src: url(../font/minecraft.ttf);
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "MinecraftFont";
+  background-image: url("../img/steve-vs-zombies.webp");
+  background-size: cover;
+  color: white;
+}
+body .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: none;
+  padding: 0;
+  flex-direction: column;
+  height: 100vh;
+  color: #b1b1b1;
+}
+body .content--wrapper {
+  width: 70%;
+}
+body .content .content--background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: none;
+  padding: 0;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+}
+body .content .content--background .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: none;
+  padding: 0;
+  flex-direction: column;
+  margin-bottom: 30px;
+  border-bottom: #b1b1b1 solid;
+}
+body .content .content--background .header__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: none;
+  padding: 0;
+  flex-direction: column;
+}
+body .content .content--background .header__text h1 {
+  font-size: 36px;
+  margin-bottom: 0;
+}
+body .content .content--background .header__text p {
+  font-size: 24px;
+}
+body .content .content--background .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: none;
+  padding: 0;
+  flex-direction: column;
+}
+body .content .content--background .main__scoreboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: none;
+  padding: 0;
+  flex-direction: column;
+  width: 80%;
+  border-bottom: #505050 0.5px solid;
+  margin-bottom: 30px;
+}
+body .content .content--background .main__scoreboard--player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: none;
+  padding: 0;
+  justify-content: space-between;
+  width: 100%;
+}
+body .content .content--background .main__scoreboard--player .player--style {
+  height: 200px;
+}
+body .content .content--background .main__scoreboard--player p {
+  width: 80%;
+  text-align: center;
+}
+body .content .content--background .main__scoreboard--score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: none;
+  padding: 0;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 50px;
+}
+body .content .content--background .main__score-icon {
+  width: 25px;
+}
+body .content .content--background .main__select-choice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: none;
+  padding: 0;
+  justify-content: space-around;
+  width: 70%;
+  margin-bottom: 40px;
+}
+body .content .content--background .main__select-choice--style {
+  height: 80px;
+}
+body .content .content--background .main__select-choice--style:hover {
+  transform: scale(1.3);
+}
+body .content .content--background .footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: none;
+  padding: 0;
+  flex-direction: column;
+}
+body .content .content--background .footer button {
+  background-color: #6b6b6b;
+  border: #b1b1b1 solid;
+  padding: 15px 0 15px 0;
+  width: 200px;
+  color: #b1b1b1;
+  font-family: "MinecraftFont";
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+body .content .content--background .footer button:hover {
+  background-color: #505050;
+}
+
+/*# sourceMappingURL=game-style.css.map */
